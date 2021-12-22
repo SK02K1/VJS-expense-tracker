@@ -1,4 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  margin: 2rem 0;
   text-align: center;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+#form-add-expense {
+  width: 40%;
+  min-height: 40vh;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#form-add-expense label {
+  display: block;
+}
+
+.btn {
+  display: block;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+input {
+  padding: 0.5rem 0.8rem;
+  width: 80%;
+}
+
+.expense-container {
+  width: 50%;
+  height: 80vh;
+  border: 2px solid black;
+  border-radius: 10px;
 }
