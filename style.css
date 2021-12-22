@@ -52,3 +52,17 @@ input {
   border: 2px solid black;
   border-radius: 10px;
 }
+
+.expense-card {
+  width: 90%;
+  margin: 1rem auto;
+  background: palevioletred;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+}
+
+.expense-card .expense {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
