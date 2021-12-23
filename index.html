@@ -10,27 +10,30 @@
   <body>
     <!-- <h1 class="header">Expense Tracker</h1> -->
     <main class="main-container">
-      <form id="form-add-expense">
-        <h2 class="header">Add new expense</h2>
-        <label for="expense-title">Expense Title</label>
-        <input
-          type="text"
-          name="title"
-          id="expense-title"
-          placeholder="e.g Electricity bill"
-          required
-        />
-        <label for="expense-amt">Expense Amount</label>
-        <input
-          type="number"
-          name="amount"
-          id="expense-amt"
-          min="1"
-          placeholder="e.g 2300"
-          required
-        />
-        <button class="btn">Add</button>
-      </form>
+      <div class="left-container">
+        <form id="form-add-expense">
+          <h2 class="header">Add new expense</h2>
+          <label for="expense-title">Expense Title</label>
+          <input
+            type="text"
+            name="title"
+            id="expense-title"
+            placeholder="e.g Electricity bill"
+            required
+          />
+          <label for="expense-amt">Expense Amount</label>
+          <input
+            type="number"
+            name="amount"
+            id="expense-amt"
+            min="1"
+            placeholder="e.g 2300"
+            required
+          />
+          <button class="btn">Add</button>
+        </form>
+        <div class="total-expense">0</div>
+      </div>
       <div class="expense-container">
         <h2 class="header">Expense List</h2>
       </div>

@@ -1,5 +1,6 @@
 const formAddExpense = document.querySelector('#form-add-expense');
 const expenseContainer = document.querySelector('.expense-container');
+const totalExpense = document.querySelector('.total-expense');
 
 class Expense {
   constructor(title, amt) {
@@ -15,6 +16,10 @@ const addToStorage = (newExpense) => {
   const expenses = expensesInStorage();
   expenses.push(newExpense);
   localStorage.setItem('expenses', JSON.stringify(expenses));
+};
+
+const updateTotalExpense = (expenseAmt) => {
+  totalExpense.textContent = Number(totalExpense.textContent) + expenseAmt;
 };
 
 const updateUI = ({ title, amt, addedAt }) => {
@@ -36,6 +41,7 @@ formAddExpense.addEventListener('submit', (e) => {
   const newExpense = new Expense(title, amount);
   addToStorage(newExpense);
   updateUI(newExpense);
+  updateTotalExpense(amount);
   formAddExpense.reset();
 });
 
@@ -44,6 +50,7 @@ if (!expensesInStorage()) {
   localStorage.expenses = JSON.stringify([]);
 } else {
   expensesInStorage().forEach((expense) => {
+    updateTotalExpense(expense.amt);
     updateUI(expense);
   });
 }
