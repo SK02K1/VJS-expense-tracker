@@ -72,6 +72,10 @@ input {
 
 .expense-card {
   width: 90%;
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   margin: 1rem auto;
   background: palevioletred;
   padding: 0.5rem 0.8rem;
@@ -79,6 +83,20 @@ input {
 }
 
 .expense-card .expense {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-delete {
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 5px;
+}
+
+.data-secondary {
   display: flex;
   justify-content: space-between;
   align-items: center;

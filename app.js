@@ -3,7 +3,8 @@ const expenseContainer = document.querySelector('.expense-container');
 const totalExpense = document.querySelector('.total-expense');
 
 class Expense {
-  constructor(title, amt) {
+  constructor(id, title, amt) {
+    this.id = id;
     this.title = title;
     this.amt = amt;
     this.addedAt = dateFns.format(new Date(), 'MMMM D, YYYY');
@@ -12,24 +13,31 @@ class Expense {
 
 const expensesInStorage = () => JSON.parse(localStorage.getItem('expenses'));
 
+const updateStorage = (expenses) => {
+  localStorage.setItem('expenses', JSON.stringify(expenses));
+};
+
 const addToStorage = (newExpense) => {
   const expenses = expensesInStorage();
   expenses.push(newExpense);
-  localStorage.setItem('expenses', JSON.stringify(expenses));
+  updateStorage(expenses);
 };
 
 const updateTotalExpense = (expenseAmt) => {
   totalExpense.textContent = Number(totalExpense.textContent) + expenseAmt;
 };
 
-const updateUI = ({ title, amt, addedAt }) => {
+const updateUI = ({ id, title, amt, addedAt }) => {
   expenseContainer.innerHTML += `
-    <div class="expense-card">
+    <div class="expense-card" data-id="${id}">
       <div class="expense">
         <h3 class="expense-title">${title}</h3>
         <span class="expense-amt">₹ ${amt}</span>
       </div>
-    <small class="added-at">${addedAt}</small>
+      <div class="data-secondary">
+        <small class="added-at">${addedAt}</small>
+        <i class="fas fa-trash btn-delete"></i>
+      </div>
     </div>
     `;
 };
@@ -38,11 +46,23 @@ formAddExpense.addEventListener('submit', (e) => {
   e.preventDefault();
   const title = formAddExpense.title.value.trim();
   const amount = Number(formAddExpense.amount.value);
-  const newExpense = new Expense(title, amount);
+  const id = expensesInStorage().length + 1;
+  const newExpense = new Expense(id, title, amount);
   addToStorage(newExpense);
   updateUI(newExpense);
   updateTotalExpense(amount);
   formAddExpense.reset();
+});
+
+const removeExpense = (element) => {
+  element.remove();
+};
+
+expenseContainer.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.classList.contains('btn-delete')) {
+    removeExpense(target.parentElement.parentElement);
+  }
 });
 
 if (!expensesInStorage()) {
