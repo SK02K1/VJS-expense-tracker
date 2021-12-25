@@ -2,9 +2,16 @@ const formAddExpense = document.querySelector('#form-add-expense');
 const expenseContainer = document.querySelector('.expense-container');
 const totalExpense = document.querySelector('.total-expense');
 
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
 class Expense {
-  constructor(id, title, amt) {
-    this.id = id;
+  constructor(title, amt) {
+    this.id = uuidv4();
     this.title = title;
     this.amt = amt;
     this.addedAt = dateFns.format(new Date(), 'MMMM D, YYYY');
@@ -21,6 +28,14 @@ const addToStorage = (newExpense) => {
   const expenses = expensesInStorage();
   expenses.push(newExpense);
   updateStorage(expenses);
+};
+
+const removeFromStorage = (expenseID) => {
+  updateStorage(
+    expensesInStorage().filter((expense) => {
+      return expense.id !== expenseID;
+    })
+  );
 };
 
 const updateTotalExpense = (expenseAmt) => {
@@ -46,8 +61,7 @@ formAddExpense.addEventListener('submit', (e) => {
   e.preventDefault();
   const title = formAddExpense.title.value.trim();
   const amount = Number(formAddExpense.amount.value);
-  const id = expensesInStorage().length + 1;
-  const newExpense = new Expense(id, title, amount);
+  const newExpense = new Expense(title, amount);
   addToStorage(newExpense);
   updateUI(newExpense);
   updateTotalExpense(amount);
@@ -55,6 +69,7 @@ formAddExpense.addEventListener('submit', (e) => {
 });
 
 const removeExpense = (element) => {
+  removeFromStorage(element.getAttribute('data-id'));
   element.remove();
 };
 
