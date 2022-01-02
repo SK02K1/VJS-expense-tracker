@@ -22,6 +22,7 @@
         <label for="expense-amount">Expense Amount</label>
         <input
           type="number"
+          min="1"
           name="amount"
           id="expense-amount"
           placeholder="Enter expense amount"
@@ -29,7 +30,9 @@
         />
         <label for="expense-date">Expense Date</label>
         <input type="date" name="date" id="expense-date" required />
-        <button>submit</button>
+        <button id="btn-submit" type="submit">submit</button>
+        <button type="reset">reset</button>
+        <button type="button" id="btn-edit" disabled>Edit</button>
       </form>
       <ul class="expense-container"></ul>
     </main>
