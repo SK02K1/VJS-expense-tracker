@@ -8,35 +8,30 @@
     <title>Expense Tracker</title>
   </head>
   <body>
-    <!-- <h1 class="header">Expense Tracker</h1> -->
     <main class="main-container">
-      <div class="left-container">
-        <form id="form-add-expense">
-          <h2 class="header">Add new expense</h2>
-          <label for="expense-title">Expense Title</label>
-          <input
-            type="text"
-            name="title"
-            id="expense-title"
-            placeholder="e.g Electricity bill"
-            required
-          />
-          <label for="expense-amt">Expense Amount</label>
-          <input
-            type="number"
-            name="amount"
-            id="expense-amt"
-            min="1"
-            placeholder="e.g 2300"
-            required
-          />
-          <button class="btn">Add</button>
-        </form>
-        <div class="total-expense">0</div>
-      </div>
-      <div class="expense-container">
-        <h2 class="header">Expense List</h2>
-      </div>
+      <h2 id="total-expense">Total Expense: 0</h2>
+      <form id="form-add-expense">
+        <label for="expense-title">Expense Title</label>
+        <input
+          type="text"
+          name="title"
+          id="expense-title"
+          placeholder="Enter expense title"
+          required
+        />
+        <label for="expense-amount">Expense Amount</label>
+        <input
+          type="number"
+          name="amount"
+          id="expense-amount"
+          placeholder="Enter expense amount"
+          required
+        />
+        <label for="expense-date">Expense Date</label>
+        <input type="date" name="date" id="expense-date" required />
+        <button>submit</button>
+      </form>
+      <ul class="expense-container"></ul>
     </main>
     <script
       src="https://kit.fontawesome.com/08b9929a7c.js"
