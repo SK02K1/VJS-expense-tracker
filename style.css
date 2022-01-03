@@ -2,6 +2,10 @@
 
 :root {
   --inter: 'Inter', sans-serif;
+  --primary-color: #2f3136;
+  --secondary-color: #36393f;
+  --accent-color: #9287ff;
+  --text-color: #fafafa;
 }
 
 * {
@@ -12,6 +16,7 @@
 
 body {
   font-family: var(--inter);
+  color: var(--text-color);
 }
 
 li {
@@ -57,10 +62,30 @@ li {
 }
 
 .content-wrapper {
-  width: 40%;
+  background-color: var(--primary-color);
+  width: 50%;
+}
+
+#total-expense {
+  background-color: var(--accent-color);
+  color: black;
+  width: 80%;
+  margin: 1rem auto;
+  padding: 4rem;
+  border-radius: 5px;
+}
+
+#form-add-expense {
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: max-content;
 }
 
 .expense-wrapper {
+  background-color: var(--primary-color);
   width: 50%;
 }
 
@@ -70,15 +95,15 @@ li {
 }
 
 .expense-card {
+  background-color: var(--secondary-color);
   width: 80%;
   height: 6rem;
   margin: 0.5rem auto;
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 10px;
-  border: 1px solid black;
 }
 
 .expense-info {
