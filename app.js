@@ -31,7 +31,7 @@ const updateExpenses = (updatedExpenses) => {
 };
 
 const addExpense = (newExpense) => {
-  updateExpenses([...getExpenses(), newExpense]);
+  updateExpenses([newExpense, ...getExpenses()]);
 };
 
 const deleteExpense = (expenseID) => {
@@ -50,12 +50,21 @@ const updateUI = () => {
   expenseContainer.innerHTML = getExpenses()
     .map(({ id, title, amount, date }) => {
       return `
-        <li data-id=${id}>
-          <p>${title}</p>
-          <p>₹ ${amount}</p>
-          <small>${dateFns.format(new Date(date), 'MMMM D, YYYY')}</small>
-          <i class="fas fa-trash btn-delete"></i>
-          <i class="far fa-edit btn-edit"></i>
+        <li class="expense-card" data-id=${id}>
+          <div class="expense-info">
+            <h3>${title}</h3>
+            <div>₹ ${amount}</div>
+          </div>
+          <div class="extra-info">
+            <small class="added-at">${dateFns.format(
+              new Date(date),
+              'MMMM D, YYYY'
+            )}</small>
+            <div >
+              <i class="fas fa-trash btn-delete control"></i>
+              <i class="far fa-edit btn-edit control"></i>
+            </div>
+          </div>
         </li>
         `;
     })
@@ -111,7 +120,8 @@ btnEdit.addEventListener('click', () => {
 
 expenseContainer.addEventListener('click', (e) => {
   const target = e.target;
-  const id = target.parentElement.getAttribute('data-id');
+  const id =
+    target.parentElement.parentElement.parentElement.getAttribute('data-id');
   if (target.classList.contains('btn-delete')) {
     deleteExpense(id);
   } else if (target.classList.contains('btn-edit')) {

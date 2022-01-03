@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --inter: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--inter);
+}
+
+li {
+  list-style-type: none;
+}
+
+.text-center {
+  text-align: center;
+  margin: 1rem;
+}
+
+.main-header {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.secondary-header {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.input {
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.label {
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  margin: 0.5rem 0rem;
+  cursor: pointer;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-wrapper {
+  width: 40%;
+}
+
+.expense-wrapper {
+  width: 50%;
+}
+
+.expense-container {
+  height: 85vh;
+  overflow-y: scroll;
+}
+
+.expense-card {
+  width: 80%;
+  height: 6rem;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.expense-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.extra-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.control {
+  background: #ccc;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: red;
+}

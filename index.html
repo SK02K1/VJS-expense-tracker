@@ -9,32 +9,47 @@
   </head>
   <body>
     <main class="main-container">
-      <h2 id="total-expense">Total Expense: 0</h2>
-      <form id="form-add-expense">
-        <label for="expense-title">Expense Title</label>
-        <input
-          type="text"
-          name="title"
-          id="expense-title"
-          placeholder="Enter expense title"
-          required
-        />
-        <label for="expense-amount">Expense Amount</label>
-        <input
-          type="number"
-          min="1"
-          name="amount"
-          id="expense-amount"
-          placeholder="Enter expense amount"
-          required
-        />
-        <label for="expense-date">Expense Date</label>
-        <input type="date" name="date" id="expense-date" required />
-        <button id="btn-submit" type="submit">submit</button>
-        <button type="reset">reset</button>
-        <button type="button" id="btn-edit" disabled>Edit</button>
-      </form>
-      <ul class="expense-container"></ul>
+      <div class="content-wrapper">
+        <h1 class="text-center main-header" id="total-expense">
+          Total Expense: 0
+        </h1>
+        <form id="form-add-expense">
+          <label class="label" for="expense-title">Expense Title</label>
+          <input
+            class="input"
+            type="text"
+            name="title"
+            id="expense-title"
+            placeholder="Enter expense title"
+            required
+          />
+          <label class="label" for="expense-amount">Expense Amount</label>
+          <input
+            class="input"
+            type="number"
+            min="1"
+            name="amount"
+            id="expense-amount"
+            placeholder="Enter expense amount"
+            required
+          />
+          <label class="label" for="expense-date">Expense Date</label>
+          <input
+            class="input"
+            type="date"
+            name="date"
+            id="expense-date"
+            required
+          />
+          <button class="btn" id="btn-submit" type="submit">submit</button>
+          <button class="btn" type="reset">reset</button>
+          <button class="btn" type="button" id="btn-edit" disabled>Edit</button>
+        </form>
+      </div>
+      <div class="expense-wrapper">
+        <h2 class="text-center secondary-header">Expense List</h2>
+        <ul class="expense-container"></ul>
+      </div>
     </main>
     <script
       src="https://kit.fontawesome.com/08b9929a7c.js"
