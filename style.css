@@ -6,6 +6,7 @@
   --secondary-color: #36393f;
   --accent-color: #9287ff;
   --text-color: #fafafa;
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 * {
@@ -70,18 +71,23 @@ li {
   background-color: var(--accent-color);
   color: black;
   width: 80%;
-  margin: 1rem auto;
+  margin: 2rem auto;
   padding: 4rem;
   border-radius: 5px;
+  box-shadow: var(--card-shadow);
 }
 
 #form-add-expense {
+  background-color: var(--secondary-color);
   width: 80%;
   margin: 2rem auto;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: max-content;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
 }
 
 .expense-wrapper {
@@ -104,6 +110,7 @@ li {
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 10px;
+  box-shadow: var(--card-shadow);
 }
 
 .expense-info {
@@ -120,13 +127,16 @@ li {
 }
 
 .control {
-  background: #ccc;
-  color: black;
-  padding: 0.5rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .btn-delete {
-  background: red;
+  background: var(--accent-color);
+}
+
+.btn-edit {
+  border: 1px solid var(--accent-color);
+  font-weight: bold;
 }
